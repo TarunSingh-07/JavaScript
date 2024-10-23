@@ -1,0 +1,36 @@
+html{
+    margin: 0;
+}
+.box{
+    margin: 100px;
+    width: 70%;
+    text-align: center;
+}
+.switches{
+    height: 50px;
+    width: 80px;
+    border: 2px solid black;
+    /* display: inline-block; */
+}
+span{
+    display: inline-block;
+}
+
+#red{
+    background-color: red;
+}
+#blue{
+    background-color: blue;
+}
+#yellow{
+    background-color: yellow;
+}
+#purple{
+    background-color: purple;
+}
+#black{
+    background-color: black;
+}
+#green{
+    background-color: green;
+}

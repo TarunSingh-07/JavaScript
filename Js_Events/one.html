@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+
+<body style="background-color: #414141;color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="standup" src="IMG_7118.JPG" alt="standup"></li>
+            <li><img width="200px" id="situp" src="IMG_7185.JPG" alt=""></li>
+            <li><img width="200px" id="sit_faceside" src="IMG_7186.JPG" alt=""></li>
+            <!-- <li><img width="200px" id="sit_faceside" src="IMG_7186.JPG" alt="" onclick="alert('sit_faceside')"></li>  Its a wrost approach -->
+            <li><img width="200px" id="standup_up" src="IMG_7188.JPG" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    /*-----------------------------------------*/
+
+    // Approach - II (it's a old approach)
+
+    // document.getElementById('sit_faceside').onclick = function(){
+    //     alert("Sit faceside clicked")
+    // }
+
+
+    // attachEvent()  -- used when internet explorer demand
+    // jQuery - on
+
+    // Approach - III (Its's a best and on demand approach)
+
+    // document.getElementById('sit_faceside').addEventListener('click', function(){
+    //     alert("Sit faceside clicked again")
+    // })
+
+    /*------------------------------------------------*/
+
+    // NEED TO STUDY ABOUT THEM 
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    /*---------------------------------------------*/
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("click inside the ul")
+    // }, false)
+
+    // document.getElementById('sit_faceside').addEventListener('click', function(e){
+    //     console.log("sit faceside click")
+    // }, false)
+
+    // false = event bubbling (bottom to top)
+    // 1st sit faceside click then click inside ul
+
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("click inside the ul")
+    // }, true)
+
+    // document.getElementById('sit_faceside').addEventListener('click', function(e){
+    //     console.log("sit faceside click")
+    // }, true)
+
+    // true = event capturing (top to bottom)
+    // 1st click inside ul then sit faceside click
+
+    /*----------------------------------------------*/
+
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("click inside the ul")
+    // }, false)
+
+    // document.getElementById('sit_faceside').addEventListener('click', function(e){
+    //     console.log("sit faceside click")
+    //     e.stopPropagation()
+    // }, false)
+
+    // stopPropagation = event bubble hoke upar ke element me nhai jayega
+
+    /*----------------------------------------------------*/
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("google clicked")
+    // })
+
+    // preventDefault() = block the link so google can't open 
+
+    /*---------------------------------------------------------*/
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName)
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+
+        // removeIt.parentNode.removeChild(removeIt)   or 
+    })
+
+    // remove() = remove the element 
+
+</script>
+
+</html>
